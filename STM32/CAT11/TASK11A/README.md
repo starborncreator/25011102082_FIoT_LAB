@@ -20,6 +20,9 @@
 **Serial Terminal:** PuTTY
 
 ---
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## TASK 11A – HTTP Request Using AT Commands
 

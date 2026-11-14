@@ -15,6 +15,8 @@
 
 ---
 
+![Circuit Diagram](circuit.png)
+
 ## TASK 7B – Cursor Positioning and Dynamic Value Update
 
 ### 1. Objective

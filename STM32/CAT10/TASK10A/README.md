@@ -19,7 +19,7 @@
 
 ---
 
-## TASK 9A – Establish STM32 ↔ Wemos UART Communication
+## TASK 10A – Establish STM32 ↔ Wemos UART Communication
 
 ### 1. Objective
 

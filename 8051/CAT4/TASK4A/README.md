@@ -47,6 +47,8 @@ The system supports ten different key operations.
 
 ---
 
+![Circuit Diagram](circuit.png)
+
 ## TASK 1 – Matrix Keypad Interfacing
 
 ### Objective

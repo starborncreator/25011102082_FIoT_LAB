@@ -20,6 +20,7 @@
 **Communication Format:** 9600-8-N-1
 
 ---
+![Circuit Diagram](circuit.png)
 
 ## 1. Problem Statement
 

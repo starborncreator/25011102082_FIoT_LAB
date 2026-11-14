@@ -16,6 +16,7 @@
 **Input Interface:** 4×4 Matrix Keypad
 
 ---
+![Circuit Diagram](circuit.png)
 
 ## TASK 7C – 4×4 Keypad-Based Character Movement
 

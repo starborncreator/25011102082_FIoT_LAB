@@ -22,6 +22,7 @@
 **Crystal Frequency:** 11.0592 MHz
 
 ---
+![Circuit Diagram](circuit.png)
 
 ## 1. Problem Statement
 

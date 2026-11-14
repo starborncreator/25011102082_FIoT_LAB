@@ -14,6 +14,7 @@
 **Crystal Frequency:** 11.0592 MHz
 
 ---
+![Circuit Diagram](circuit.png)
 
 ## TASK 2 – Software PWM and LED Fading
 

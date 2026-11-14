@@ -1,77 +1,141 @@
-# EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 2
+# **README**
 
-**NAME OF EXP:** LED Blinking Using 8051 Microcontroller
+# Bare-Metal Programming – LED Blinking
 
-**HARDWARE SETUP / PLATFORM:** 8051 Development Board, Keil µVision
+## Experiments
+
+This repository contains the implementation of hardware bring-up and bare-metal LED blinking using a microcontroller development board. The experiment focuses on understanding the target hardware, configuring GPIO registers through direct register access, and implementing software-based delay functionality without relying on high-level hardware abstraction libraries.
 
 ---
 
-## TASK 2A: SINGLE LED BLINKING
+## **TASK 1 – Hardware Board Bring-Up**
 
-### 1. Circuit Diagram
+### Objective
+To identify the microcontroller development board components, establish communication with the target microcontroller, and verify the hardware connections and power supply.
 
-**Components Required:**
-- 8051 Microcontroller (AT89S52)
-- 1 LED
-- Current-limiting resistor (220Ω–330Ω)
-- 5V Power Supply
+### Activities Performed
 
-**Connections:**
-- LED Anode (+) → +5V through a current-limiting resistor.
-- LED Cathode (-) → P1.0 of the 8051 microcontroller.
-- Connect the microcontroller to a 5V power supply.
+1. **Hardware Identification**
+   - Identify the microcontroller and its CPU core.
+   - Identify the debugger/programmer interface.
+   - Identify the power source and operating voltage.
+   - Locate the onboard user LED and its corresponding GPIO pin.
 
-### 2. Core Logic / Pseudocode / Code Base
+2. **Power Supply Verification**
+   - Use a digital multimeter to verify the board's power rails.
+   - Check the operating voltage and ensure proper power supply connections.
 
-**Working Principle:**
+3. **GPIO Identification**
+   - Refer to the microcontroller datasheet and board schematic.
+   - Identify the GPIO port and pin connected to the onboard LED.
+   - Determine whether the LED operates in active-high or active-low configuration.
 
-The program configures pin P1.0 as an output to control a single LED. The LED is connected in an active-low configuration. Therefore, setting P1.0 to LOW turns the LED ON, while setting it to HIGH turns the LED OFF.
+4. **Communication Establishment**
+   - Connect the host computer to the target microcontroller using the debugger/programmer.
+   - Verify successful device detection and communication.
 
-A delay function is implemented using nested loops to generate a time interval between the ON and OFF states. This creates a visible blinking effect. The process repeats continuously inside an infinite loop.
+### Hardware Bring-Up Sheet
 
-**Pseudocode:**
+| Parameter | Student Entry |
+|---|---|
+| MCU | |
+| CPU Core | |
+| Operating Voltage | |
+| Debug Interface | |
+| LED GPIO Port | |
+| LED GPIO Pin | |
+| LED Active State | |
+| LED Frequency (Hz) | |
 
-1. Start the program.
-2. Configure P1.0 as the LED control output.
-3. Set P1.0 to LOW to turn ON the LED.
-4. Call the delay function.
-5. Set P1.0 to HIGH to turn OFF the LED.
-6. Call the delay function.
-7. Repeat steps 3–6 continuously.
+---
 
-**Code Base:**
+## **TASK 2 – Bare-Metal LED Blink**
 
-\`\`\`c
-#include <REG51.H>
+### Objective
+To implement LED blinking at approximately 1 Hz using direct register access without using high-level GPIO libraries.
 
-sbit LED = P1^0;
+### Working Principle
 
-void delay()
-{
-    int i, j;
-    for(i = 0; i < 500; i++)
-        for(j = 0; j < 100; j++);
-}
+The microcontroller GPIO pin connected to the onboard LED is configured as an output by directly modifying the corresponding hardware registers.
 
-void main()
-{
-    while(1)
-    {
-        LED = 0;   // LED ON
-        delay();
+A software delay mechanism is implemented using nested loops to introduce a time interval between LED state transitions.
 
-        LED = 1;   // LED OFF
-        delay();
-    }
-}
-\`\`\`
+The LED is continuously switched between ON and OFF states, producing a blinking effect at approximately 1 Hz.
 
-### 3. Inference
+### Implementation Steps
 
-The experiment demonstrates basic GPIO output control using the 8051 microcontroller (AT89S52). The LED connected to P1.0 blinks continuously with a delay between its ON and OFF states.
+1. Identify the GPIO port and pin connected to the onboard LED.
+2. Enable the GPIO peripheral clock.
+3. Configure the LED GPIO pin as an output using direct register access.
+4. Implement a software delay using simple loops.
+5. Set the GPIO output to turn ON the LED.
+6. Execute the delay function.
+7. Toggle the GPIO output to turn OFF the LED.
+8. Execute the delay function again.
+9. Repeat the process continuously.
 
-The experiment helps understand active-low LED interfacing, port pin manipulation, delay generation using software loops, and the use of infinite loops for continuous hardware operation.
+### Expected Output
 
-**Result:** Successful implementation of single LED blinking using the 8051 microcontroller.
+- The onboard LED turns ON.
+- The LED remains ON for a specific time interval.
+- The LED turns OFF after the delay.
+- The process repeats continuously.
+- The LED blinks at approximately 1 Hz.
+
+---
+
+## **TASK 3 – Custom Delay Library Function**
+
+### Objective
+To develop a customized library function for generating software delays and reuse it in the bare-metal LED blinking application.
+
+### Implementation
+
+- Create a separate header file (`delay.h`) containing the delay function declaration.
+- Implement the delay functionality in a source file (`delay.c`).
+- Include the custom delay library in the main application.
+- Call the delay function whenever a time interval is required between LED state transitions.
+
+### Benefits
+
+- Promotes code reusability.
+- Separates delay functionality from application logic.
+- Improves code organization and maintainability.
+- Allows the delay function to be reused in other embedded applications.
+
+---
+
+## **Hardware and Software Requirements**
+
+### Hardware
+- Microcontroller Development Board
+- USB Cable
+- Debugger/Programmer
+- Digital Multimeter
+- Host Computer
+
+### Software
+- Embedded C Compiler
+- IDE / Development Environment
+- Microcontroller Datasheet
+- Board Schematic
+
+---
+
+## **Learning Outcomes**
+
+- Understanding microcontroller hardware architecture and board bring-up.
+- Identifying GPIO ports and pins using datasheets and schematics.
+- Verifying power supply connections using a digital multimeter.
+- Establishing communication between the host computer and target microcontroller.
+- Configuring GPIO registers using direct register access.
+- Implementing software-based delays using loops.
+- Developing reusable custom library functions.
+- Understanding bare-metal embedded programming without high-level hardware abstraction libraries.
+
+---
+
+## **Result**
+
+Successfully performed hardware board bring-up, implemented bare-metal LED blinking using direct register access, and developed a custom library function for software delay generation.

@@ -22,6 +22,9 @@
 **Driver:** STM32 HAL Library
 
 ---
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## TASK 9A – Basic UART Communication
 

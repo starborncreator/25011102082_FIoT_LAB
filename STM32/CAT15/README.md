@@ -5,6 +5,9 @@
 **Technologies:** STM32, BME280, ESP8266, HTTP, MQTT, Node-RED
 
 ---
+## Project Image
+
+![IoT Project](iot-img1.jpeg)
 
 ## 1. ABSTRACT
 

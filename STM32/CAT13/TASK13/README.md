@@ -24,6 +24,9 @@
 **Analytics Platform:** Node-RED
 
 ---
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## 1. Problem Statement
 

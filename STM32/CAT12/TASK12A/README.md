@@ -16,6 +16,9 @@
 **Programming Language:** Embedded C
 
 ---
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## TASK 12A – On-board LED Bring-Up
 

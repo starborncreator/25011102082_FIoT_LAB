@@ -26,7 +26,9 @@
 **Analytics Platform:** Node-RED
 
 ---
+## Circuit Diagram
 
+![Circuit Diagram](../circuit.png)
 ## 1. Problem Statement
 
 As a continuation of the previous exercise, develop an STM32-based environmental sensing application to interface a BME280 sensor using the I2C protocol and obtain compensated temperature, pressure, and humidity measurements.

@@ -5,7 +5,9 @@
 **Technologies:** STM32, BME280, ESP8266, HTTP, MQTT, Node-RED
 
 ---
+## Output
 
+![Output](Images/output.png)
 ## 1. ABSTRACT
 
 Environmental monitoring plays an important role in agriculture, particularly in understanding temperature, atmospheric pressure, humidity, and heat-related conditions that influence crop growth.

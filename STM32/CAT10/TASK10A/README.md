@@ -18,6 +18,9 @@
 **Serial Terminal:** PuTTY / Tera Term
 
 ---
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## TASK 10A – Establish STM32 ↔ Wemos UART Communication
 

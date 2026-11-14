@@ -1,11 +1,9 @@
 
 # **README**
 
-# 8051 – Timer Interrupt Based PWM and Signal Generation
+# 8051 – Signal Generation and Stepper Motor Control
 
 ## Experiment Details
-
-**Experiment:** Software PWM Generation and Signal Generation Using Timer Interrupts
 
 **Microcontroller:** 8051 (AT89S52)
 
@@ -13,241 +11,133 @@
 
 **Crystal Frequency:** 11.0592 MHz
 
+**Timer:** Timer 0 Interrupt
+
 ---
+
 ![Circuit Diagram](circuit.png)
 
-## TASK 3 – Software PWM and LED Fading
+# TASK 3 – Stepper Motor Control Using Timer Interrupts
 
-### 1. Objective
+## 1. Objective
 
-To generate a software-based PWM (Pulse Width Modulation) signal using the Timer 0 interrupt developed in Task 1.
+To interface and control a stepper motor using the 8051 microcontroller and timer interrupts.
 
-The duty cycle is gradually varied from 0% to 100% and then back to 0%, producing a visible LED fading effect.
+The timer interrupt is used to generate sequential stepping signals to rotate the motor.
 
-Additionally, configure a GPIO pin as an output and generate square-wave signals of different frequencies using timer interrupts.
+The motor speed is controlled by varying the timer interval between successive steps.
 
----
+## 2. Working Principle
 
-### 2. Working Principle
+A stepper motor rotates in discrete angular steps when its coils are energized in a specific sequence.
 
-Pulse Width Modulation (PWM) is a technique used to control the average power delivered to a device by varying the ON and OFF durations of a digital signal.
+The microcontroller generates a sequence of digital output patterns to control the motor movement.
 
-The PWM signal consists of two important parameters:
+A timer interrupt determines when the next stepping pattern should be generated.
 
-- **Frequency:** Number of complete ON-OFF cycles per second.
-- **Duty Cycle:** Percentage of time the signal remains HIGH during one complete cycle.
-
-The Timer 0 interrupt is used as the time base for generating the PWM signal.
-
-The software continuously updates the duty cycle, gradually increasing it from 0% to 100% and then decreasing it back to 0%.
-
-This produces a smooth LED fading effect.
-
-### 3. Duty Cycle Variation
-
-The duty cycle is varied in steps of 10%.
-
-**Expected Sequence:**
+The four-step sequence used in this experiment is:
 
 ```text
-0% → 10% → 20% → 30% → 40%
-   → 50% → 60% → 70% → 80%
-   → 90% → 100%
-   → 90% → 80% → ... → 10% → 0%
+1000
+  |
+  v
+0100
+  |
+  v
+0010
+  |
+  v
+0001
+  |
+  v
+Repeat
 ```
 
-### 4. Duty Cycle and LED Brightness
+Each output pattern represents the activation of a particular motor phase.
 
-| Duty Cycle | LED Brightness |
-|:---:|---|
-| 0% | OFF |
-| 25% | Dim |
-| 50% | Medium |
-| 75% | Bright |
-| 100% | Fully ON |
+The timer interval determines the motor speed. A shorter interval results in faster rotation, while a longer interval results in slower rotation.
 
-### 5. Suggested PWM Frequency
+## 3. Stepper Motor Speed Control
 
-The recommended PWM frequency is:
+The motor speed is controlled by changing the time interval between successive steps.
 
-**500 Hz – 1 kHz**
+### Speed Modes
 
-At this frequency, the LED should appear continuously illuminated rather than visibly flickering.
+| Speed Mode | Timer Interval | Motor Speed |
+|---|---|---|
+| Slow | 100 ms/step | Slow rotation |
+| Medium | 50 ms/step | Medium rotation |
+| Fast | 10 ms/step | Fast rotation |
 
-### 6. Implementation Steps
+### 3.1 Slow Speed
 
-1. Configure Timer 0 using the interrupt configuration developed in Task 1.
-2. Configure a GPIO pin as an output for LED control.
-3. Generate a periodic timer interrupt.
-4. Implement software PWM using a counter.
-5. Compare the PWM counter with the selected duty cycle.
-6. Set the GPIO output HIGH when the counter is within the ON period.
-7. Set the GPIO output LOW during the OFF period.
-8. Gradually increase the duty cycle from 0% to 100%.
-9. Gradually decrease the duty cycle from 100% to 0%.
-10. Repeat the process continuously to produce the LED fading effect.
+- Step interval: 100 ms.
+- The motor takes more time between successive steps.
+- Results in slower rotation.
 
----
+### 3.2 Medium Speed
 
-## TASK 3 – Square Wave Generation at Different Frequencies
+- Step interval: 50 ms.
+- The motor steps at a moderate rate.
+- Results in medium-speed rotation.
 
-### 1. Objective
+### 3.3 Fast Speed
 
-To configure a GPIO pin as a signal output and use timer interrupts to generate square-wave signals of different frequencies.
+- Step interval: 10 ms.
+- The motor takes less time between successive steps.
+- Results in faster rotation.
 
-The output frequency and duty cycle are measured using an oscilloscope.
+## 4. Implementation Steps
 
-### 2. Working Principle
+1. Configure the required GPIO pins as outputs.
+2. Connect the motor control interface to the microcontroller.
+3. Configure Timer 0 to generate periodic interrupts.
+4. Initialize the step sequence.
+5. Generate the first stepping pattern (1000).
+6. Generate the next pattern (0100).
+7. Continue with (0010) and (0001).
+8. Repeat the sequence continuously.
+9. Implement different speed modes by changing the timer interval.
+10. Observe the motor rotation at slow, medium and fast speeds.
 
-A square wave is a digital signal that alternates between HIGH and LOW states.
+## 5. Stepper Motor Sequence
 
-The Timer 0 interrupt is used to control the timing of GPIO state transitions.
-
-Whenever the required timer interval is reached, the GPIO output is toggled.
-
-By varying the timer interval, square waves of different frequencies can be generated.
-
-### 3. Frequency Modes
-
-The experiment requires generating five different output frequencies.
-
-| Mode | Output Frequency |
+| Step Number | Output Pattern |
 |:---:|:---:|
-| Mode 1 | 100 Hz |
-| Mode 2 | 500 Hz |
-| Mode 3 | 1 kHz |
-| Mode 4 | 2 kHz |
-| Mode 5 | 5 kHz |
+| 1 | 1000 |
+| 2 | 0100 |
+| 3 | 0010 |
+| 4 | 0001 |
+| 5 | 1000 |
 
-### 4. Implementation Steps
+The sequence repeats continuously to produce motor rotation.
 
-1. Configure the required GPIO pin as an output.
-2. Configure Timer 0 to generate periodic interrupts.
-3. Initialize the output pin to LOW.
-4. Toggle the GPIO pin inside the timer interrupt routine.
-5. Adjust the timer interval to generate the required output frequency.
-6. Implement five frequency modes.
-7. Measure the output waveform using an oscilloscope.
-8. Verify the generated frequency and duty cycle.
+## 6. Concepts Covered
 
-### 5. Oscilloscope Verification
-
-Connect the oscilloscope probe to the configured GPIO output pin.
-
-Verify the following parameters:
-
-- Output frequency.
-- Signal time period.
-- HIGH duration.
-- LOW duration.
-- Duty cycle.
-
-For a 50% duty-cycle square wave:
-
-```text
-       HIGH        LOW
-    ┌────────┐
-    │        │
-────┘        └────────┐
-                      │
-                      └────
-
-    One complete cycle
-```
+- Stepper motor interfacing.
+- GPIO output control.
+- Timer interrupt configuration.
+- Interrupt Service Routine (ISR).
+- Sequential output generation.
+- Stepper motor stepping sequence.
+- Motor speed control.
+- Timer interval calculation.
+- Embedded C programming.
 
 ---
 
-## TASK 4 – Different Signal Types
-
-### Objective
-
-To generate different digital signal patterns using the timer interrupt mechanism after successfully implementing square-wave generation.
-
-### 1. Square Wave
-
-A square wave alternates continuously between HIGH and LOW states with equal ON and OFF durations.
-
-**Example:**
-
-```text
-101010101010
-```
-
-### 2. Variable Duty-Cycle Wave
-
-A variable duty-cycle wave is generated by changing the HIGH and LOW durations of the signal.
-
-This demonstrates how the duty cycle affects the waveform.
-
-**Example:**
-
-```text
-1111000011110000
-```
-
-### 3. Pulse Train
-
-A pulse train consists of a sequence of pulses separated by LOW intervals.
-
-**Example:**
-
-```text
-100000001000000010000000
-```
-
-### 4. Burst Signal
-
-A burst signal consists of a group of pulses followed by a period of inactivity, after which another group of pulses is generated.
-
-**Example:**
-
-```text
-1010101010 0000000000 1010101010
-```
-
----
-
-## Concepts Covered
-
-- Timer 0 configuration and interrupts.
-- Software-based PWM generation.
-- Pulse Width Modulation.
-- Duty-cycle calculation.
-- LED brightness control.
-- LED fading effect.
-- GPIO output configuration.
-- Square-wave generation.
-- Frequency and time-period calculation.
-- Variable duty-cycle signals.
-- Pulse train generation.
-- Burst signal generation.
-- Oscilloscope-based waveform verification.
-
----
-
-## Expected Results
-
-1. Successfully generate a software PWM signal using Timer 0 interrupts.
-2. Gradually vary the PWM duty cycle from 0% to 100% and back to 0%.
-3. Produce a visible LED fading effect.
-4. Generate square-wave signals at 100 Hz, 500 Hz, 1 kHz, 2 kHz and 5 kHz.
-5. Generate different signal types, including square waves, variable duty-cycle waves, pulse trains and burst signals.
-6. Verify the output frequency and duty cycle using an oscilloscope.
-
----
-
-## Hardware Requirements
+# Hardware Requirements
 
 - 8051 Microcontroller (AT89S52)
-- LED
-- Current-limiting resistor
-- 11.0592 MHz Crystal Oscillator
+- Stepper Motor
+- Suitable Motor Driver
 - 8051 Development Board
-- Digital Oscilloscope
+- 11.0592 MHz Crystal Oscillator
 - Connecting Wires
-- 5V Power Supply
+- Power Supply
+- Digital Oscilloscope
 
-## Software Requirements
+# Software Requirements
 
 - Keil µVision IDE
 - 8051 C Compiler
@@ -255,22 +145,32 @@ A burst signal consists of a group of pulses followed by a period of inactivity,
 
 ---
 
-## Deliverables
+# Learning Outcomes
 
-- Complete Embedded C source code.
-- Timer interrupt configuration.
-- Software PWM implementation.
-- LED fading implementation.
-- Square-wave generation for all five frequency modes.
-- Different signal waveform implementations.
-- Oscilloscope output measurements.
-- README documentation.
-- GitHub repository containing the implementation.
+- Understand different digital waveform generation techniques.
+- Generate square waves using timer interrupts.
+- Implement variable duty-cycle signals.
+- Generate pulse trains and burst signals.
+- Understand stepper motor operation.
+- Generate sequential stepping patterns.
+- Control motor speed by varying timer intervals.
+- Develop interrupt-based embedded applications.
 
 ---
 
-## Result
+# Expected Results
 
-Successfully implemented software PWM generation using Timer 0 interrupts to control LED brightness through gradual duty-cycle variation.
+1. Successfully generate square-wave signals.
+2. Generate variable duty-cycle waveforms.
+3. Implement pulse train and burst signal generation.
+4. Interface a stepper motor with the 8051 microcontroller through a suitable driver.
+5. Generate the required four-step sequence using timer interrupts.
+6. Control motor speed at slow, medium and fast intervals.
 
-Also generated square waves at different frequencies and implemented multiple digital signal patterns, including square waves, variable duty-cycle waves, pulse trains and burst signals. Verified the generated waveforms using an oscilloscope.
+---
+
+# Final Result
+
+Successfully implemented different digital signal generation techniques using timer interrupts and demonstrated stepper motor control using sequential GPIO output patterns.
+
+The motor speed was varied by changing the timer interval between successive steps.

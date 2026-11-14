@@ -18,7 +18,9 @@
 **Interface:** GPIO
 
 ---
-![Circuit Diagram](circuit.png)
+## Circuit Diagram
+
+![Circuit Diagram](../circuit.png)
 
 ## TASK 8A – GPIO Input/Output
 

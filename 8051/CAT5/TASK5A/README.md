@@ -14,6 +14,7 @@
 **Crystal Frequency:** 11.0592 MHz
 
 ---
+![Circuit Diagram](circuit.png)
 
 ## TASK 1 – Timer 0 Interrupt and LED Control
 

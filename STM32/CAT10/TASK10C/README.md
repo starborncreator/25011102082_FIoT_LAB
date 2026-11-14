@@ -21,7 +21,7 @@
 
 ---
 
-## TASK 9C – Connect Wemos to Wi-Fi
+## TASK 10C – Connect Wemos to Wi-Fi
 
 ### 1. Objective
 

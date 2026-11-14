@@ -9,6 +9,8 @@ This repository contains the implementation of hardware bring-up and bare-metal 
 
 ---
 
+![Circuit Diagram](circuit.png)
+
 ## **TASK 1 – Hardware Board Bring-Up**
 
 ### Objective

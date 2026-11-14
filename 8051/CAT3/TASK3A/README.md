@@ -32,6 +32,8 @@ The microcontroller responds to button presses by switching between four differe
 
 ---
 
+![Circuit Diagram](circuit.png)
+
 ## TASK 1 – Running LED (Mode 1)
 
 ### Objective

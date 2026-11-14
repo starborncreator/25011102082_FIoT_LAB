@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"senseee\startup_stm32f401xe.o"
+"senseee\main.o"
+"senseee\stm32f4xx_it.o"
+"senseee\stm32f4xx_hal_msp.o"
+"senseee\bme280.o"
+"senseee\stm32f4xx_hal_i2c.o"
+"senseee\stm32f4xx_hal_i2c_ex.o"
+"senseee\stm32f4xx_hal_rcc.o"
+"senseee\stm32f4xx_hal_rcc_ex.o"
+"senseee\stm32f4xx_hal_flash.o"
+"senseee\stm32f4xx_hal_flash_ex.o"
+"senseee\stm32f4xx_hal_flash_ramfunc.o"
+"senseee\stm32f4xx_hal_gpio.o"
+"senseee\stm32f4xx_hal_dma_ex.o"
+"senseee\stm32f4xx_hal_dma.o"
+"senseee\stm32f4xx_hal_pwr.o"
+"senseee\stm32f4xx_hal_pwr_ex.o"
+"senseee\stm32f4xx_hal_cortex.o"
+"senseee\stm32f4xx_hal.o"
+"senseee\stm32f4xx_hal_exti.o"
+"senseee\system_stm32f4xx.o"
+--strict --scatter "senseee\senseee.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "senseee.map" -o senseee\senseee.axf

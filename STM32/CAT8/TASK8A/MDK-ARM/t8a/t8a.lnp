@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"t8a\startup_stm32f103x6.o"
+"t8a\main.o"
+"t8a\stm32f1xx_it.o"
+"t8a\stm32f1xx_hal_msp.o"
+"t8a\stm32f1xx_hal_gpio_ex.o"
+"t8a\stm32f1xx_hal.o"
+"t8a\stm32f1xx_hal_rcc.o"
+"t8a\stm32f1xx_hal_rcc_ex.o"
+"t8a\stm32f1xx_hal_gpio.o"
+"t8a\stm32f1xx_hal_dma.o"
+"t8a\stm32f1xx_hal_cortex.o"
+"t8a\stm32f1xx_hal_pwr.o"
+"t8a\stm32f1xx_hal_flash.o"
+"t8a\stm32f1xx_hal_flash_ex.o"
+"t8a\stm32f1xx_hal_exti.o"
+"t8a\system_stm32f1xx.o"
+--strict --scatter "t8a\t8a.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "t8a.map" -o t8a\t8a.axf

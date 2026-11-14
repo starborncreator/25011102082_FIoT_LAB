@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"mqtttttt\startup_stm32f401xe.o"
+"mqtttttt\main.o"
+"mqtttttt\stm32f4xx_it.o"
+"mqtttttt\stm32f4xx_hal_msp.o"
+"mqtttttt\esplib.o"
+"mqtttttt\bme280.o"
+"mqtttttt\stm32f4xx_hal_uart.o"
+"mqtttttt\stm32f4xx_hal_rcc.o"
+"mqtttttt\stm32f4xx_hal_rcc_ex.o"
+"mqtttttt\stm32f4xx_hal_flash.o"
+"mqtttttt\stm32f4xx_hal_flash_ex.o"
+"mqtttttt\stm32f4xx_hal_flash_ramfunc.o"
+"mqtttttt\stm32f4xx_hal_gpio.o"
+"mqtttttt\stm32f4xx_hal_dma_ex.o"
+"mqtttttt\stm32f4xx_hal_dma.o"
+"mqtttttt\stm32f4xx_hal_pwr.o"
+"mqtttttt\stm32f4xx_hal_pwr_ex.o"
+"mqtttttt\stm32f4xx_hal_cortex.o"
+"mqtttttt\stm32f4xx_hal.o"
+"mqtttttt\stm32f4xx_hal_exti.o"
+"mqtttttt\system_stm32f4xx.o"
+--strict --scatter "mqtttttt\mqtttttt.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "mqtttttt.map" -o mqtttttt\mqtttttt.axf

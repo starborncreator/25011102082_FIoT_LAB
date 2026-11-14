@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"uarthttp\startup_stm32f103xb.o"
+"uarthttp\main.o"
+"uarthttp\stm32f1xx_it.o"
+"uarthttp\stm32f1xx_hal_msp.o"
+"uarthttp\stm32f1xx_hal_gpio_ex.o"
+"uarthttp\stm32f1xx_hal_uart.o"
+"uarthttp\stm32f1xx_hal.o"
+"uarthttp\stm32f1xx_hal_rcc.o"
+"uarthttp\stm32f1xx_hal_rcc_ex.o"
+"uarthttp\stm32f1xx_hal_gpio.o"
+"uarthttp\stm32f1xx_hal_dma.o"
+"uarthttp\stm32f1xx_hal_cortex.o"
+"uarthttp\stm32f1xx_hal_pwr.o"
+"uarthttp\stm32f1xx_hal_flash.o"
+"uarthttp\stm32f1xx_hal_flash_ex.o"
+"uarthttp\stm32f1xx_hal_exti.o"
+"uarthttp\system_stm32f1xx.o"
+--strict --scatter "uarthttp\uarthttp.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "uarthttp.map" -o uarthttp\uarthttp.axf

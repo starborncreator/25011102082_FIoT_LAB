@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"ledddd\startup_stm32f103xb.o"
+"ledddd\main.o"
+"ledddd\stm32f1xx_it.o"
+"ledddd\stm32f1xx_hal_msp.o"
+"ledddd\stm32f1xx_hal_gpio_ex.o"
+"ledddd\stm32f1xx_hal.o"
+"ledddd\stm32f1xx_hal_rcc.o"
+"ledddd\stm32f1xx_hal_rcc_ex.o"
+"ledddd\stm32f1xx_hal_gpio.o"
+"ledddd\stm32f1xx_hal_dma.o"
+"ledddd\stm32f1xx_hal_cortex.o"
+"ledddd\stm32f1xx_hal_pwr.o"
+"ledddd\stm32f1xx_hal_flash.o"
+"ledddd\stm32f1xx_hal_flash_ex.o"
+"ledddd\stm32f1xx_hal_exti.o"
+"ledddd\system_stm32f1xx.o"
+--strict --scatter "ledddd\ledddd.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "ledddd.map" -o ledddd\ledddd.axf

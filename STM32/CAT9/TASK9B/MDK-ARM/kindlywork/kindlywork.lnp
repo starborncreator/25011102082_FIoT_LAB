@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"kindlywork\startup_stm32f103xb.o"
+"kindlywork\main.o"
+"kindlywork\stm32f1xx_it.o"
+"kindlywork\stm32f1xx_hal_msp.o"
+"kindlywork\stm32f1xx_hal_gpio_ex.o"
+"kindlywork\stm32f1xx_hal_uart.o"
+"kindlywork\stm32f1xx_hal.o"
+"kindlywork\stm32f1xx_hal_rcc.o"
+"kindlywork\stm32f1xx_hal_rcc_ex.o"
+"kindlywork\stm32f1xx_hal_gpio.o"
+"kindlywork\stm32f1xx_hal_dma.o"
+"kindlywork\stm32f1xx_hal_cortex.o"
+"kindlywork\stm32f1xx_hal_pwr.o"
+"kindlywork\stm32f1xx_hal_flash.o"
+"kindlywork\stm32f1xx_hal_flash_ex.o"
+"kindlywork\stm32f1xx_hal_exti.o"
+"kindlywork\system_stm32f1xx.o"
+--strict --scatter "kindlywork\kindlywork.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "kindlywork.map" -o kindlywork\kindlywork.axf

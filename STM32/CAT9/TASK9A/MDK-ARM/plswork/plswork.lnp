@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"plswork\startup_stm32f103xb.o"
+"plswork\main.o"
+"plswork\stm32f1xx_it.o"
+"plswork\stm32f1xx_hal_msp.o"
+"plswork\stm32f1xx_hal_gpio_ex.o"
+"plswork\stm32f1xx_hal_uart.o"
+"plswork\stm32f1xx_hal.o"
+"plswork\stm32f1xx_hal_rcc.o"
+"plswork\stm32f1xx_hal_rcc_ex.o"
+"plswork\stm32f1xx_hal_gpio.o"
+"plswork\stm32f1xx_hal_dma.o"
+"plswork\stm32f1xx_hal_cortex.o"
+"plswork\stm32f1xx_hal_pwr.o"
+"plswork\stm32f1xx_hal_flash.o"
+"plswork\stm32f1xx_hal_flash_ex.o"
+"plswork\stm32f1xx_hal_exti.o"
+"plswork\system_stm32f1xx.o"
+--strict --scatter "plswork\plswork.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "plswork.map" -o plswork\plswork.axf

@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"uartwifi\startup_stm32f103xb.o"
+"uartwifi\main.o"
+"uartwifi\stm32f1xx_it.o"
+"uartwifi\stm32f1xx_hal_msp.o"
+"uartwifi\stm32f1xx_hal_gpio_ex.o"
+"uartwifi\stm32f1xx_hal_uart.o"
+"uartwifi\stm32f1xx_hal.o"
+"uartwifi\stm32f1xx_hal_rcc.o"
+"uartwifi\stm32f1xx_hal_rcc_ex.o"
+"uartwifi\stm32f1xx_hal_gpio.o"
+"uartwifi\stm32f1xx_hal_dma.o"
+"uartwifi\stm32f1xx_hal_cortex.o"
+"uartwifi\stm32f1xx_hal_pwr.o"
+"uartwifi\stm32f1xx_hal_flash.o"
+"uartwifi\stm32f1xx_hal_flash_ex.o"
+"uartwifi\stm32f1xx_hal_exti.o"
+"uartwifi\system_stm32f1xx.o"
+--strict --scatter "uartwifi\uartwifi.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "uartwifi.map" -o uartwifi\uartwifi.axf

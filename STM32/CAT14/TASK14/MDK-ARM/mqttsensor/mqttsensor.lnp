@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"mqttsensor\startup_stm32f401xe.o"
+"mqttsensor\main.o"
+"mqttsensor\stm32f4xx_it.o"
+"mqttsensor\stm32f4xx_hal_msp.o"
+"mqttsensor\esplib.o"
+"mqttsensor\bme280.o"
+"mqttsensor\stm32f4xx_hal_i2c.o"
+"mqttsensor\stm32f4xx_hal_i2c_ex.o"
+"mqttsensor\stm32f4xx_hal_rcc.o"
+"mqttsensor\stm32f4xx_hal_rcc_ex.o"
+"mqttsensor\stm32f4xx_hal_flash.o"
+"mqttsensor\stm32f4xx_hal_flash_ex.o"
+"mqttsensor\stm32f4xx_hal_flash_ramfunc.o"
+"mqttsensor\stm32f4xx_hal_gpio.o"
+"mqttsensor\stm32f4xx_hal_dma_ex.o"
+"mqttsensor\stm32f4xx_hal_dma.o"
+"mqttsensor\stm32f4xx_hal_pwr.o"
+"mqttsensor\stm32f4xx_hal_pwr_ex.o"
+"mqttsensor\stm32f4xx_hal_cortex.o"
+"mqttsensor\stm32f4xx_hal.o"
+"mqttsensor\stm32f4xx_hal_exti.o"
+"mqttsensor\stm32f4xx_hal_uart.o"
+"mqttsensor\system_stm32f4xx.o"
+--strict --scatter "mqttsensor\mqttsensor.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "mqttsensor.map" -o mqttsensor\mqttsensor.axf
